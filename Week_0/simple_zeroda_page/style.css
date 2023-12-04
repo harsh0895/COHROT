@@ -1,0 +1,22 @@
+.header{
+    display: flex;
+    justify-content: space-around;
+    height: 65px;
+    align-items: center;
+    border-bottom: 1px solid #666;
+}
+.image img {
+    margin-right: 50px;
+    cursor: pointer;
+}
+.items span{
+    margin-right: 35px;
+    font-size: 18px;
+    cursor: pointer;
+    color: #666
+}
+.landing img{
+    width: 800px;
+    margin-top: 85px;
+}
+
