@@ -9,5 +9,21 @@ There is no automated test for this one, this is more for you to understand time
 */
 
 function calculateTime(n) {
-    return 0.01;
+    const beforeDate = new Date();
+    const beforeTimeMs = beforeDate.getTime();
+    // console.log(beforeDate)
+    let a = 0;
+    for( let i=0; i<n; i++ ){
+        a = a + i;
+    }
+    console.log("Sum is: "+a);
+
+    const afterDate = new Date();
+    const afterTimeMs = afterDate.getTime();
+
+    let time = afterTimeMs - beforeTimeMs;
+    return time;
 }
+
+let seconds = calculateTime(100);
+console.log(seconds);
