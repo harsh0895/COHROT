@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo</title>
+
+<style>
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+}
+.todo {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #4caf50;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+#container {
+    margin-top: 20px;
+}
+
+.todo-item {
+    background-color: #f9f9f9;
+    padding: 10px;
+    border-radius: 5px;
+    /* margin-bottom: 10px; */
+}
+
+</style>
+
+</head>
+<body>
+    <div class="todo">
+        <input id="title" type="text" placeholder="title"><br><br>
+        <input id="description" type="text" placeholder="description"><br><br>
+        <button onclick="addTodos()">Add todo</button>
+        <!-- adding new data in container -->
+        <div id="container" class="todo-item">
+
+        </div>
+    </div>
+</body>
+
+<script>
+    let globalId = 0;
+
+    function markAsDone(todoId) {
+        const parent = document.getElementById(todoId);
+        parent.children[2].innerHTML = "Done!";
+    }
+    
+    function createChild(title, description, id) {
+        const child = document.createElement("div");
+        const first = document.createElement("div");
+        first.innerHTML = title;
+        const second = document.createElement("div");
+        second.innerHTML = description;
+        const button = document.createElement("button");
+        button.innerHTML = "Mark as done";
+        button.setAttribute("onclick", `markAsDone(${id})`);
+        child.appendChild(first);
+        child.appendChild(second);
+        child.appendChild(button);
+        child.setAttribute("id", id);
+        return child;
+    }
+
+    function addTodos() {
+        const title = document.getElementById("title").value;
+        const description = document.getElementById("description").value;
+        const parent = document.getElementById("container");
+        
+        parent.appendChild(createChild(title, description, globalId++));
+    }
+
+    // state will always be an array
+    // Every element of state would have a title, description, and id
+    //
+    //
+    // function updateDomAccToState(state) {
+    //     const parent = document.getElementById("container");
+    //     parent.innerHTML = "";
+    //     for( let i=0; i<state.length; i++ ){
+    //         const child = createChild(state[i].title, state[i].description, state[i].id);
+    //         parent.appendChild(child);
+    //     }
+    // }
+
+    // sending data from the user
+    // updateDomAccToState([{
+    //     title: "todo 1",
+    //     description: "hello world",
+    //     id: 1
+    // },
+    // {
+    //     title: "todo 2",
+    //     description: "hello world 2",
+    //     id: 2
+    // }])
+    
+
+    // fetching data from the server on todos:-
+    // window.setInterval(async function() {
+    //     const res = await fetch("https://sum-server.100xdevs.com/todos")
+    //     const json = await res.json();
+    //     updateDomAccToState(json.todos)
+    // }, 5000)
+</script>
+
+</html>

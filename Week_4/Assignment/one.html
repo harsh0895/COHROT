@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="todo">
+        <input id="title" type="text" placeholder="title"><br><br>
+        <input id="description" type="text" placeholder="description"><br><br>
+        <button onclick="addTodos()">Add todo</button>
+        <!-- adding new data in container -->
+        <div id="container" class="todo-item">
+
+        </div>
+    </div>
+</body>
+
+<script>
+    let globalId = 1;
+    let todoState = [];
+    let oldTodoState = [];
+
+    function addTodoToDom() {
+      
+    }
+
+    function removeTodoFromDom(todo) {
+      
+    }
+
+    function updateTodoInDom(oldTodo, newTodo) {
+        
+    }
+
+    function updateState(newTodos) {
+      // calculate the diff b/w newTodos and oldTodos.
+      // More specifically, find out what todos are - 
+      // 1. added
+      // 2. deleted
+      // 3. updated
+      const added = [];
+      const deleted = [];
+      const updated = [];
+      // calculate these 3 arrays
+      // call addTodo, removeTodo, updateTodo functions on each of the
+      // elements
+      oldTodoState = newTodos;
+    }
+
+    function addTodo() {
+      const title = document.getElementById("title").value;
+      const description = document.getElementById("description").value;
+      todoState.push({
+        title: title,
+        description: description,
+        id: globalId++,
+      })  
+      updateState(todoState);
+    }
+  </script>
+
+</html>

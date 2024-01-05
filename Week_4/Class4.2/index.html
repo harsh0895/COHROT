@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO</title>
+</head>
+<body>
+    <div class="todo">
+        <input id="title" type="text" placeholder="title"><br><br>
+        <input id="description" type="text" placeholder="description"><br><br>
+        <button onclick="addTodo()">Add todo</button>
+        <!-- adding new data in container -->
+        <div id="container">
+           
+        </div>
+    </div>
+</body>
+
+<script>
+
+    // function create() {
+
+    //     // creating outer div
+    //     const outerDiv = document.createElement('div');
+    //     const titleDiv = document.createElement('div');
+    //     const descriptionDiv = document.createElement('div');
+    //     const button = document.createElement('button');
+        
+    //     // creating container 
+    //     outerDiv.appendChild(titleDiv).textContent  = title;
+    //     outerDiv.appendChild(descriptionDiv).textContent  = description;
+    //     outerDiv.appendChild(button).textContent = "mark as done";
+    
+    //     document.body.appendChild(outerDiv);
+    //     document.getElementById("container").textContent = originalHTML + outerDiv;
+
+    // }
+
+    function addTodo() {
+        const title = document.getElementById("title").value;
+        const description = document.getElementById("description").value;
+        const originalHTML = document.getElementById("container").innerHTML;
+        // this is a one way of creatring todo list wihtout using createElement and this is a ugly way of doing that!!!!!!!!
+        // document.getElementById("container").innerHTML = originalHTML + `<div>
+        //         <div>${title}</div>
+        //         <div>${description}</div>
+        //         <button>mark as done</button>
+        //     </div>`      
+
+        // creating a todo by using DOM with the help of document.createElement('div');
+        
+    }
+</script>
+
+</html>
